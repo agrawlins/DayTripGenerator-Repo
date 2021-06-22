@@ -3,15 +3,16 @@
 //Select random destination
 function selectRandomDestination(){
     let destinationOptions = ["London", "Edinburgh", "Dublin", "Stockholm", "Copenhagen", "Paris", "Madrid", "Lisbon", "Rome", "Venice", "Vienna", "Berlin"];
-    let destinationSelection = destinationOptions[Math.floor(Math.random * destinationOptions.length)];
-    console.log(`Your current destination is ${destinationSelection}.`)
+    let i = Math.floor(Math.random() * destinationOptions.length);
+    let destinationSelection = destinationOptions[i];
     return destinationSelection;
 }
-let randomDestination = destinationSelection;
-confirmRandomDestination();
+selectRandomDestination();
+confirmRandomDestination(selectRandomDestination());
+
     //Allow re-selection of destination
-    function confirmRandomDestination(choice){
-    let confirmChoice = prompt(`Do you want to go to ${choice}? \n ('Y' or 'N')`)
+function confirmRandomDestination(choice){
+    let confirmChoice = prompt(`Your current destination is ${choice}. Do you want to go to ${choice}? \n ('Y' or 'N')`)
     if(confirmChoice === "Y"){
         console.log(`You're all set to go to ${choice}!`);
     }else if(confirmChoice === "N") {
@@ -21,6 +22,7 @@ confirmRandomDestination();
         confirmRandomDestination(choice);
     }
 }
+
 //Select random restaurant
     //Allow re-selection of restaurant
 
