@@ -87,6 +87,22 @@ function confirmRandomEntertainment(choice){
     }
 }
 //Allow confirmation of day trip itinerary selection
+function confirmItinerary(destination, restaurant, transportation, entertainment){
+    let destination = confirmRandomDestination(selectRandomDestination());
+    let restaurant = confirmRandomRestaurant(selectRandomRestaurant());
+    let transportation = confirmRandomTransport(selectRandomTransport());
+    let entertainment = confirmRandomEntertainment(selectRandomEntertainment());
+    let confirmChoice = prompt(`Destination: ${destination} \n Restaurant: ${restaurant} \n Transportation: ${transportation} \n Entertainment: ${entertainment} \n \n Are you happy with your itinerary? \n ('Y' or 'N')`);
+    if(confirmChoice === "Y"){
+         console.log(`You're all set! Have fun in ${destination}!`);
+    }else if(confirmChoice === "N") {
+        let redoChoice = prompt("Which part of your itinerary would you like to change?")
+        confirmRandomEntertainment(selectRandomEntertainment());
+    }else{
+        console.log("Please answer with 'Y' or 'N'.");
+        confirmRandomEntertainment(choice);
+    }
+}
     //Display completed trip in the console
 
 //REMEMBER; FUNCTIONS HAVE 'ONE' JOB!!!
