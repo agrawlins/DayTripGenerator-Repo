@@ -66,8 +66,26 @@ function confirmRandomTransport(choice){
     }
 }
 //Select random form of entertainment
+function selectRandomEntertainment(){
+    let entertainmentOptions = ["an opera", "a movie theater", "a museum", "an art exhibit", "a bowling alley", "a skating rink", "a shooting range"];
+    let i = Math.floor(Math.random() * entertainmentOptions.length);
+    let entertainmentSelection = entertainmentOptions[i];
+    return entertainmentSelection;
+}
+selectRandomEntertainment();
+confirmRandomEntertainment(selectRandomEntertainment());
     //Allow re-selection of entertainment
-
+function confirmRandomEntertainment(choice){
+    let confirmChoice = prompt(`You're going to ${choice}. Do you want to go to ${choice}? \n ('Y' or 'N')`)
+    if(confirmChoice === "Y"){
+         console.log(`You're going to ${choice}!`);
+    }else if(confirmChoice === "N") {
+        confirmRandomEntertainment(selectRandomEntertainment());
+    }else{
+        console.log("Please answer with 'Y' or 'N'.");
+        confirmRandomEntertainment(choice);
+    }
+}
 //Allow confirmation of day trip itinerary selection
     //Display completed trip in the console
 
