@@ -16,7 +16,7 @@ function confirmRandomDestination(choice){
     if(confirmChoice === "Y"){
         console.log(`You're all set to go to ${choice}!`);
     }else if(confirmChoice === "N") {
-        selectRandomDestination();
+        confirmRandomDestination(selectRandomDestination());
     }else{
         console.log("Please answer with 'Y' or 'N'.");
         confirmRandomDestination(choice);
@@ -24,8 +24,26 @@ function confirmRandomDestination(choice){
 }
 
 //Select random restaurant
+function selectRandomRestaurant(){
+    let restaurantOptions = ["McDonald's", "Burger King", "Chic-fil-A", "Wendy's", "Captain D's"];
+    let i = Math.floor(Math.random() * restaurantOptions.length);
+    let restaurantSelection = restaurantOptions[i];
+    return restaurantSelection;
+}
+selectRandomRestaurant();
+confirmRandomRestaurant(selectRandomRestaurant());
     //Allow re-selection of restaurant
-
+function confirmRandomRestaurant(choice){
+    let confirmChoice = prompt(`Your current destination is ${choice}. Do you want to go to ${choice}? \n ('Y' or 'N')`)
+    if(confirmChoice === "Y"){
+        console.log(`You're all set to go to ${choice}!`);
+    }else if(confirmChoice === "N") {
+        confirmRandomRestaurant(selectRandomRestaurant());
+    }else{
+        console.log("Please answer with 'Y' or 'N'.");
+        confirmRandomRestaurant(choice);
+        }
+    }
 //Select random mode of transportation
     //Allow re-selection of transportation
 
