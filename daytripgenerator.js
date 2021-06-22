@@ -34,19 +34,37 @@ selectRandomRestaurant();
 confirmRandomRestaurant(selectRandomRestaurant());
     //Allow re-selection of restaurant
 function confirmRandomRestaurant(choice){
-    let confirmChoice = prompt(`Your current destination is ${choice}. Do you want to go to ${choice}? \n ('Y' or 'N')`)
+    let confirmChoice = prompt(`It looks like you're going to eat at ${choice}. Do you want to eat at ${choice}? \n ('Y' or 'N')`)
     if(confirmChoice === "Y"){
-        console.log(`You're all set to go to ${choice}!`);
+        console.log(`You're going to eat at ${choice}!`);
     }else if(confirmChoice === "N") {
         confirmRandomRestaurant(selectRandomRestaurant());
     }else{
         console.log("Please answer with 'Y' or 'N'.");
         confirmRandomRestaurant(choice);
-        }
     }
+}
 //Select random mode of transportation
+function selectRandomTransport(){
+    let transportOptions = ["plane", "jetpack", "train", "car", "motorcycle", "bike"];
+    let i = Math.floor(Math.random() * transportOptions.length);
+    let transportSelection = transportOptions[i];
+    return transportSelection;
+}
+selectRandomTransport();
+confirmRandomTransport(selectRandomTransport());
     //Allow re-selection of transportation
-
+function confirmRandomTransport(choice){
+    let confirmChoice = prompt(`You're going to ride a ${choice}. Do you want to ride a ${choice}? \n ('Y' or 'N')`)
+    if(confirmChoice === "Y"){
+         console.log(`You're going to ride a ${choice}!`);
+    }else if(confirmChoice === "N") {
+        confirmRandomTransport(selectRandomTransport());
+    }else{
+        console.log("Please answer with 'Y' or 'N'.");
+        confirmRandomTransport(choice);
+    }
+}
 //Select random form of entertainment
     //Allow re-selection of entertainment
 
