@@ -33,7 +33,7 @@ function selectRandomRestaurant(){
 }
 
 let restaurant = selectRandomRestaurant();
-confirmRandomRestaurant(selectRandomRestaurant());
+confirmRandomRestaurant(restaurant);
 
     //Allow re-selection of restaurant
 function confirmRandomRestaurant(choice){
@@ -56,7 +56,7 @@ function selectRandomTransport(){
 }
 
 let transportation = selectRandomTransport();
-confirmRandomTransport(selectRandomTransport());
+confirmRandomTransport(transportation);
 
     //Allow re-selection of transportation
 function confirmRandomTransport(choice){
@@ -79,7 +79,7 @@ function selectRandomEntertainment(){
 }
 
 let entertainment = selectRandomEntertainment();
-confirmRandomEntertainment(selectRandomEntertainment());
+confirmRandomEntertainment(entertainment);
 
     //Allow re-selection of entertainment
 function confirmRandomEntertainment(choice){
@@ -98,7 +98,7 @@ function confirmRandomEntertainment(choice){
 confirmItinerary(destination, restaurant, transportation, entertainment);
 //Allow confirmation of day trip itinerary selection
 function confirmItinerary(destination, restaurant, transportation, entertainment){
-    let confirmChoice = prompt(`Destination: ${destination} \n Restaurant: ${restaurant} \n Transportation: ${transportation} \n Entertainment: ${entertainment} \n \n Are you happy with your itinerary? \n ('Y' or 'N')`);
+    let confirmChoice = prompt(`Here's your Itinerary: \n Destination: ${destination} \n Restaurant: ${restaurant} \n Transportation: ${transportation} \n Entertainment: ${entertainment} \n \n Are you happy with your itinerary? \n ('Y' or 'N')`);
     if(confirmChoice === "Y"){
          console.log(`You're all set! Have fun in ${destination}!`);
     }else if(confirmChoice === "N") {
