@@ -16,6 +16,7 @@ function confirmRandomDestination(choice){
     let confirmChoice = prompt(`Your current destination is ${choice}. Do you want to go to ${choice}? \n ('Y' or 'N')`)
     if(confirmChoice === "Y"){
         console.log(`You're all set to go to ${choice}!`);
+        return(choice);
     }else if(confirmChoice === "N") {
         confirmRandomDestination(selectRandomDestination());
     }else{
@@ -23,7 +24,7 @@ function confirmRandomDestination(choice){
         confirmRandomDestination(choice);
     }
 }
-
+let finalDestination = confirmRandomDestination();
 //Select random restaurant
 function selectRandomRestaurant(){
     let restaurantOptions = ["McDonald's", "Burger King", "Chic-fil-A", "Wendy's", "Captain D's"];
@@ -95,7 +96,7 @@ function confirmRandomEntertainment(choice){
 }
 
 
-confirmItinerary(destination, restaurant, transportation, entertainment);
+confirmItinerary(finalDestination, restaurant, transportation, entertainment);
 //Allow confirmation of day trip itinerary selection
 function confirmItinerary(destination, restaurant, transportation, entertainment){
     let confirmChoice = prompt(`Here's your Itinerary: \n Destination: ${destination} \n Restaurant: ${restaurant} \n Transportation: ${transportation} \n Entertainment: ${entertainment} \n \n Are you happy with your itinerary? \n ('Y' or 'N')`);
