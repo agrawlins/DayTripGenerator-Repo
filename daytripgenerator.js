@@ -16,7 +16,8 @@ function confirmRandomDestination(choice){
     let confirmChoice = prompt(`Your current destination is ${choice}. Do you want to go to ${choice}? \n ('Y' or 'N')`)
     if(confirmChoice === "Y"){
         console.log(`You're all set to go to ${choice}!`);
-        return(choice);
+        let newDestination = choice;
+        return newDestination;
     }else if(confirmChoice === "N") {
         confirmRandomDestination(selectRandomDestination());
     }else{
@@ -24,7 +25,6 @@ function confirmRandomDestination(choice){
         confirmRandomDestination(choice);
     }
 }
-
 //Select random restaurant
 function selectRandomRestaurant(){
     let restaurantOptions = ["McDonald's", "Burger King", "Chic-fil-A", "Wendy's", "Captain D's"];
