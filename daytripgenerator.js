@@ -7,8 +7,9 @@ function selectRandomDestination(){
     let destinationSelection = destinationOptions[i];
     return destinationSelection;
 }
-selectRandomDestination();
-confirmRandomDestination(selectRandomDestination());
+
+let destination = selectRandomDestination();
+confirmRandomDestination(destination);
 
     //Allow re-selection of destination
 function confirmRandomDestination(choice){
@@ -30,8 +31,10 @@ function selectRandomRestaurant(){
     let restaurantSelection = restaurantOptions[i];
     return restaurantSelection;
 }
-selectRandomRestaurant();
+
+let restaurant = selectRandomRestaurant();
 confirmRandomRestaurant(selectRandomRestaurant());
+
     //Allow re-selection of restaurant
 function confirmRandomRestaurant(choice){
     let confirmChoice = prompt(`It looks like you're going to eat at ${choice}. Do you want to eat at ${choice}? \n ('Y' or 'N')`)
@@ -51,8 +54,10 @@ function selectRandomTransport(){
     let transportSelection = transportOptions[i];
     return transportSelection;
 }
-selectRandomTransport();
+
+let transportation = selectRandomTransport();
 confirmRandomTransport(selectRandomTransport());
+
     //Allow re-selection of transportation
 function confirmRandomTransport(choice){
     let confirmChoice = prompt(`You're going to ride a ${choice}. Do you want to ride a ${choice}? \n ('Y' or 'N')`)
@@ -72,8 +77,10 @@ function selectRandomEntertainment(){
     let entertainmentSelection = entertainmentOptions[i];
     return entertainmentSelection;
 }
-selectRandomEntertainment();
+
+let entertainment = selectRandomEntertainment();
 confirmRandomEntertainment(selectRandomEntertainment());
+
     //Allow re-selection of entertainment
 function confirmRandomEntertainment(choice){
     let confirmChoice = prompt(`You're going to ${choice}. Do you want to go to ${choice}? \n ('Y' or 'N')`)
@@ -86,18 +93,21 @@ function confirmRandomEntertainment(choice){
         confirmRandomEntertainment(choice);
     }
 }
+
+
+confirmItinerary(destination, restaurant, transportation, entertainment);
 //Allow confirmation of day trip itinerary selection
 function confirmItinerary(destination, restaurant, transportation, entertainment){
-    let destination = confirmRandomDestination(selectRandomDestination());
-    let restaurant = confirmRandomRestaurant(selectRandomRestaurant());
-    let transportation = confirmRandomTransport(selectRandomTransport());
-    let entertainment = confirmRandomEntertainment(selectRandomEntertainment());
     let confirmChoice = prompt(`Destination: ${destination} \n Restaurant: ${restaurant} \n Transportation: ${transportation} \n Entertainment: ${entertainment} \n \n Are you happy with your itinerary? \n ('Y' or 'N')`);
     if(confirmChoice === "Y"){
          console.log(`You're all set! Have fun in ${destination}!`);
     }else if(confirmChoice === "N") {
-        let redoChoice = prompt("Which part of your itinerary would you like to change?")
-        confirmRandomEntertainment(selectRandomEntertainment());
+        let redoChoice = prompt("Would you like to start over? \n ('Y' or 'N')");
+        if(redoChoice === "Y"){
+            console.log("Well, poop. Looks like you're stuck at home now. Try reloading the page...?");
+        }else if(redoChoice === "N"){
+            console.log(`You're all set! Have fun in ${destination}!`);
+        }
     }else{
         console.log("Please answer with 'Y' or 'N'.");
         confirmRandomEntertainment(choice);
