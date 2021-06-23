@@ -16,8 +16,7 @@ function confirmRandomDestination(choice){
     let confirmChoice = prompt(`Your current destination is ${choice}. Do you want to go to ${choice}? \n ('Y' or 'N')`)
     if(confirmChoice === "Y"){
         console.log(`You're all set to go to ${choice}!`);
-        let newDestination = choice;
-        return newDestination;
+        return choice;
     }else if(confirmChoice === "N") {
         confirmRandomDestination(selectRandomDestination());
     }else{
@@ -25,6 +24,7 @@ function confirmRandomDestination(choice){
         confirmRandomDestination(choice);
     }
 }
+
 //Select random restaurant
 function selectRandomRestaurant(){
     let restaurantOptions = ["McDonald's", "Burger King", "Chic-fil-A", "Wendy's", "Captain D's"];
@@ -41,6 +41,7 @@ function confirmRandomRestaurant(choice){
     let confirmChoice = prompt(`It looks like you're going to eat at ${choice}. Do you want to eat at ${choice}? \n ('Y' or 'N')`)
     if(confirmChoice === "Y"){
         console.log(`You're going to eat at ${choice}!`);
+        return choice;
     }else if(confirmChoice === "N") {
         confirmRandomRestaurant(selectRandomRestaurant());
     }else{
@@ -48,6 +49,7 @@ function confirmRandomRestaurant(choice){
         confirmRandomRestaurant(choice);
     }
 }
+
 //Select random mode of transportation
 function selectRandomTransport(){
     let transportOptions = ["plane", "jetpack", "train", "car", "motorcycle", "bike"];
@@ -64,6 +66,7 @@ function confirmRandomTransport(choice){
     let confirmChoice = prompt(`You're going to ride a ${choice}. Do you want to ride a ${choice}? \n ('Y' or 'N')`)
     if(confirmChoice === "Y"){
          console.log(`You're going to ride a ${choice}!`);
+         return choice;
     }else if(confirmChoice === "N") {
         confirmRandomTransport(selectRandomTransport());
     }else{
@@ -71,6 +74,7 @@ function confirmRandomTransport(choice){
         confirmRandomTransport(choice);
     }
 }
+
 //Select random form of entertainment
 function selectRandomEntertainment(){
     let entertainmentOptions = ["an opera", "a movie theater", "a museum", "an art exhibit", "a bowling alley", "a skating rink", "a shooting range"];
@@ -94,7 +98,6 @@ function confirmRandomEntertainment(choice){
         confirmRandomEntertainment(choice);
     }
 }
-
 
 confirmItinerary(destination, restaurant, transportation, entertainment);
 //Allow confirmation of day trip itinerary selection
